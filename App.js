@@ -1,20 +1,56 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import { Button, View } from 'react-native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
+import Home from './screens/Home';
+import Calculator from './screens/Calculator';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
+import Conversor from './screens/Conversor';
+import TiendaRopa from './screens/Tienda de ropa';
+
+const Drawer = createDrawerNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen
+          name="Inicio"
+          component={Home}
+          options={{
+            drawerIcon: ({ focused, size }) => {
+              let colorIcon = focused ? '#007AFF' : 'black';
+              return (<FontAwesome name='home' size={32} color={colorIcon} />);
+            },
+          }} />
+        <Drawer.Screen
+          name="Calculadora"
+          component={Calculator}
+          options={{
+            drawerIcon: ({ focused, size }) => {
+              let colorIcon = focused ? '#007AFF' : 'black';
+              return (<FontAwesome name='calculator' size={32} color={colorIcon} />);
+            },
+          }} />
+        <Drawer.Screen
+          name="Conversor"
+          component={Conversor}
+          options={{
+            drawerIcon: ({ focused, size }) => {
+              let colorIcon = focused ? '#007AFF' : 'black';
+              return (<FontAwesome name='money' size={32} color={colorIcon} />);
+            },
+          }} />
+        <Drawer.Screen
+          name="Tienda de ropa"
+          component={TiendaRopa}
+          options={{
+            drawerIcon: ({ focused, size }) => {
+              let colorIcon = focused ? '#007AFF' : 'black';
+              return (<FontAwesome name='shopping-cart' size={32} color={colorIcon} />);
+            },
+          }} />
+      </Drawer.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
