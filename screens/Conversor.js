@@ -14,13 +14,21 @@ const Conversor = () => {
         return isDecimal;
     }
 
-    const valueListener = (value) => {
-        if (!isNumber(value)) {
-            setValue('');
+    const valueListener = (val) => {
+        if (!isNumber(val)) {
+            if (val == '') {
+                setValue('')
+                convert(conversion, '');
+            }
+            else {
+                setValue(value);
+                convert(conversion, value);
+            }
         }
-        else
-            setValue(value);
-        convert(conversion, value);
+        else {
+            setValue(val);
+            convert(conversion, val);
+        }
     }
 
     const convert = (conv, value = '') => {
