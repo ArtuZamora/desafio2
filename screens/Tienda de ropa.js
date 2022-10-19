@@ -154,9 +154,9 @@ const TiendaRopa = () => {
                             <Text>Nombre del producto</Text>
                             <TextInput style={styles.input} value={name} onChangeText={(value) => setName(value)} />
                             <Text>Cantidad</Text>
-                            <TextInput style={styles.input} value={unitCost} keyboardType='numeric' onChangeText={(value) => setUnitCost(value)} />
-                            <Text>Costo unitario (USD)</Text>
                             <TextInput style={styles.input} value={quantity} keyboardType='numeric' onChangeText={(value) => setQuantity(value)} />
+                            <Text>Costo unitario (USD)</Text>
+                            <TextInput style={styles.input} value={unitCost} keyboardType='numeric' onChangeText={(value) => setUnitCost(value)} />
                             <Button style={styles.buttonSubmit} title="Ingresar" onPress={() => saveProduct()} />
                             <View style={{ height: 20 }}></View>
                         </View>
